@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Website with Theme Toggle</title>
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary-color: #1e3a8a; /* Dark blue */
+            --secondary-color: #10b981; /* Emerald green */
+            --accent-color: #f97316; /* Vibrant orange */
+            --background-color: #f3f4f6; /* Light gray */
+            --font-color: #121315; /* Dark text color */
+            --font-size-base: 16px;
+            --spacing: 16px;
+        }
+
+        /* Dark Theme */
+        .dark-theme {
+            --primary-color: #a855f7; /* Purple */
+            --background-color: #546944bf; /* Very dark gray */
+            --secondary-color: #f87171; /* Soft red */
+            --accent-color: #eab308; /* Yellow */
+            --font-color: #e5e7eb; /* Light text color */
+        }
+
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: var(--font-size-base);
+            background-color: var(--background-color);
+            color: var(--font-color);
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing);
+            background-color: var(--primary-color);
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            height: 2rem;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 var(--spacing);
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--accent-color);
+            border-radius: 3px 3px 3px  ;
+            background-color: yellowgreen;
+            color: #111827;
+            transition: color 0.3s;
+        }
+
+        .navbar-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: var(--spacing);
+        }
+
+        /* Dropdown for smaller screens */
+        @media (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                background-color: var(--primary-color);
+                width: 100%;
+            }
+
+            .navbar-links.show {
+                display: flex;
+            }
+
+            .navbar-toggle {
+                display: block;
+            }
+        }
+
+        /* Full-Screen Banner */
+        .full-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: #fff;
+            text-align: center;
+            padding: var(--spacing);
+        }
+
+        .responsive-text {
+            font-size: 2rem;
+            margin: var(--spacing);
+        }
+
+        /* Main Content Layout */
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing);
+            padding: var(--spacing);
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .content-section {
+            padding: var(--spacing);
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .content-section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button */
+        .toggle-button {
+            background-color: var(--secondary-color);
+            border: none;
+            padding: 0.75em 1.5em;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: var(--spacing) auto 0;
+            display: block;
+        }
+
+        .toggle-button:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        /* Wiggle Animation */
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .wiggle-button:hover {
+            animation: wiggle 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <h1>My Beautiful Website</h1>
+        <div class="navbar-toggle" onclick="toggleMenu()">☰</div>
+        <nav class="navbar-links" id="navbarLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Full-Screen Banner -->
+    <section class="full-screen">
+        <div class="responsive-text">Welcome to Our Stunning Website</div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="content">
+        <div class="content-section">
+            <h2>Column 1</h2>
+            <p>Experience a seamless transition from desktop to mobile with our modern, responsive design.</p>
+        </div>
+        <div class="content-section">
+            <h2>Column 2</h2>
+            <p>We use CSS variables, transitions, and animations to enhance user engagement and interaction.</p>
+        </div>
+        <button class="toggle-button wiggle-button" onclick="toggleTheme()">Toggle Theme</button>
+    </main>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+        }
+
+        // Mobile Dropdown
+        function toggleMenu() {
+            document.getElementById('navbarLinks').classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

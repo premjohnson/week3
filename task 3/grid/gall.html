@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery</title>
+    <style>
+        /* Centering the gallery within the page */
+        body {
+            display: flex;
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically */
+            min-height: 100vh; /* Full viewport height */
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Container for the photo gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Dynamic columns based on screen size */
+            gap: 10px; /* Space between images */
+            padding: 20px;
+            max-width: 800px; /* Limit max width of the gallery */
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow around the gallery */
+            border-radius: 10px; /* Rounded corners for gallery container */
+            background-color: #ffffff; /* White background for gallery container */
+        }
+
+        /* Individual image styling */
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Photo Gallery -->
+    <div class="gallery">
+        <img src="./th.jpg" alt="Gallery Image 1">
+        <img src="./Vancouver-Art-Gallery-via-Tourism-Vancouver.jpg" alt="Gallery Image 2">
+        <img src="./th (1).jpg" alt="Gallery Image 3">
+        <img src="./th (1).jpg" alt="Gallery Image 4">
+        <img src="./1.27.18_3222.webp" alt="Gallery Image 5">
+     
+    </div>
+</body>
+</html>

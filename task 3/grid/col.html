@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Column Blog Layout</title>
+    <style>
+        /* Container for the 3-column layout */
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+            gap: 20px; /* Space between columns */
+            padding: 20px;
+        }
+
+        /* Individual blog post styling */
+        .blog-post {
+            background-color: #f9f9f9;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-post h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .blog-post p {
+            color: #555;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr; /* Single-column layout on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Blog Container -->
+    <div class="blog-container">
+        <div class="blog-post">
+            <h2>Blog Post 1</h2>
+            <p>Content for blog post 1. This is an example of a simple blog layout using CSS Grid.</p>
+        </div>
+        <div class="blog-post">
+            <h2>Blog Post 2</h2>
+            <p>Content for blog post 2. This is an example of a simple blog layout using CSS Grid.</p>
+        </div>
+        <div class="blog-post">
+            <h2>Blog Post 3</h2>
+            <p>Content for blog post 3. This is an example of a simple blog layout using CSS Grid.</p>
+        </div>
+    </div>
+</body>
+</html>

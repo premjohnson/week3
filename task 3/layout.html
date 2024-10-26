@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Reset default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation bar styles */
+        .nav {
+            background-color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .nav-brand {
+            display: inline;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 2rem;
+        }
+
+        .nav-links {
+            display: inline;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #333;
+
+        }
+        .nav-links a:hover{
+             color: #1e1f1d;
+             transition: color 0.3s ease;
+             border-radius: 4px 4px 4px 4px;
+             background-color: #ceee8b;
+        }
+
+        .nav-auth {
+            float: right;
+        }
+
+        .nav-auth a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+        }
+
+        .btn-signup {
+            background-color: #1a1a3a;
+            color: white;
+            border-radius: 20px;
+        }
+
+        /* Sidebar styles */
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #f5f5f5;
+            padding: 2rem;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            margin-top: 60px; /* Account for nav height */
+        }
+
+        .sidebar-item {
+            display: block;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .sidebar-item:hover {
+            background-color: #e0e0e0;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 2rem;
+            flex-grow: 1;
+        }
+ img {
+    width: 35rem;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 20rem;
+    margin-top: 5rem;
+    transition: all 0.3s ease; /* Smooth transition for all effects */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Initial shadow */
+}
+
+img:hover {
+    transform: translateY(-5px) scale(1.02); /* Slight lift and scale effect */
+    opacity: 0.9;
+    cursor: pointer;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Larger shadow on hover */
+    filter: brightness(1.1) contrast(1.1); /* Slightly enhance the image */
+}
+
+/* Optional: Add a subtle animation when the image is clicked */
+img:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar (Inline Elements) -->
+    <nav class="nav">
+        <div class="nav-brand">Embark</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Product</a>
+            <a href="#">About us</a>
+            <a href="#">Pricing</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="nav-auth">
+            <a href="#">Log in</a>
+            <a href="#" class="btn-signup">Sign up</a>
+        </div>
+    </nav>
+
+    <!-- Container for Sidebar and Main Content -->
+    <div class="container">
+        <!-- Sidebar (Block Elements) -->
+        <aside class="sidebar">
+            <a href="#" class="sidebar-item">Dashboard</a>
+            <a href="#" class="sidebar-item">Projects</a>
+            <a href="#" class="sidebar-item">Tasks</a>
+            <a href="#" class="sidebar-item">Reports</a>
+            <a href="#" class="sidebar-item">Settings</a>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <h1>A place for your business</h1>
+            <p>This is what makes our business good.</p>
+            <img src="./Why-you-need-to-have-systems-in-place-for-your-business-2048x1152.png" alt="">
+        </main>
+    </div>
+</body>
+</html>

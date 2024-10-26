@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollable Content Box</title>
+    <style>
+        /* Center the content box on the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #e0f7fa; /* Light teal background */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Scrollable Content Box */
+        .scroll-box {
+            width: 300px;
+            height: 150px;
+            padding: 16px;
+            overflow: scroll;
+            background-color: #ffffff; /* White background */
+            border: 2px solid #00796b; /* Dark teal border */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Text Styling */
+        .scroll-box p {
+            margin: 0 0 8px;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        /* Styled Scrollbars (only works on Webkit browsers like Chrome and Safari) */
+        .scroll-box::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .scroll-box::-webkit-scrollbar-track {
+            background: #e0f7fa; /* Match body background color */
+            border-radius: 8px;
+        }
+
+        .scroll-box::-webkit-scrollbar-thumb {
+            background-color: #00796b; /* Dark teal scrollbar */
+            border-radius: 8px;
+        }
+        h2{
+            color: #333333;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            text-align: center;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Scrollable Content Box</h2>
+    <div class="scroll-box">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus faucibus velit vitae purus vulputate, a suscipit purus facilisis.</p>
+        <p>Vestibulum euismod, urna in fermentum suscipit, ligula magna scelerisque nisi, non accumsan justo velit at nulla.</p>
+        <p>Nulla facilisi. Sed at interdum lorem, eget dignissim lectus. In hac habitasse platea dictumst. Donec auctor ex a erat dictum.</p>
+        <p>Phasellus vehicula justo ut nisl efficitur pretium. Duis laoreet orci ac massa condimentum, a accumsan nunc facilisis.</p>
+    </div>
+</body>
+</html>

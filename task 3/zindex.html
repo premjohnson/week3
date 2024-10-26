@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-index and Modal Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Stacked Elements Demo */
+        .stacked-demo {
+            position: relative;
+            height: 400px;
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stacked-element {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .element-1 {
+            background: #FF6B6B;
+            left: 50px;
+            top: 50px;
+            z-index: 1;
+        }
+
+        .element-2 {
+            background: #4ECDC4;
+            left: 100px;
+            top: 100px;
+            z-index: 2;
+        }
+
+        .element-3 {
+            background: #45B7D1;
+            left: 150px;
+            top: 150px;
+            z-index: 3;
+        }
+
+        .stacked-element:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        /* Modal */
+        .modal-trigger {
+            padding: 12px 24px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .modal-trigger:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            transform: translateY(-20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-overlay.active .modal {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-header {
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #333;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Z-index Info */
+        .z-index-info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .z-index-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .z-index-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .z-index-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Z-index Information -->
+        <div class="z-index-info">
+            <h2>Z-index Demonstration</h2>
+            <ul class="z-index-list">
+                <li>Red square: z-index 1</li>
+                <li>Teal square: z-index 2</li>
+                <li>Blue square: z-index 3</li>
+                <li>Hover any square to bring it to front (z-index 10)</li>
+                <li>Modal overlay: z-index 1000</li>
+            </ul>
+        </div>
+
+        <!-- Stacked Elements -->
+        <div class="stacked-demo">
+            <div class="stacked-element element-1">z-index: 1</div>
+            <div class="stacked-element element-2">z-index: 2</div>
+            <div class="stacked-element element-3">z-index: 3</div>
+        </div>
+
+        <!-- Modal Trigger -->
+        <button class="modal-trigger">Open Modal</button>
+
+        <!-- Modal -->
+        <div class="modal-overlay" id="modal">
+            <div class="modal">
+                <button class="modal-close">&times;</button>
+                <div class="modal-header">
+                    <h2 class="modal-title">Modal Title</h2>
+                </div>
+                <div class="modal-body">
+                    <p>This modal appears above all other content with z-index: 1000.</p>
+                    <p>The overlay includes a blur effect on the background content.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+                    <button class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functionality
+        const modalTrigger = document.querySelector('.modal-trigger');
+        const modal = document.getElementById('modal');
+        const closeButton = document.querySelector('.modal-close');
+
+        modalTrigger.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        closeButton.addEventListener('click', closeModal);
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

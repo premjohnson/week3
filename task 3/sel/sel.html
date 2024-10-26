@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-classes and Pseudo-elements Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Button Styling */
+        .my-button {
+            background-color: #007BFF; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            position: relative; 
+            transition: background-color 0.3s ease; 
+        }
+
+        /* Change background color on hover */
+        .my-button:hover {
+            background-color: #0056b3; /* Darker blue */
+        }
+
+        /* Link Styling */
+        a {
+            color: #007BFF; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Visited link styling */
+        a:visited {
+            color: #9d5e5e; /* Gray color for visited links */
+        }
+
+        /* Heading Styling */
+        h2 {
+            position: relative; /* For positioning the pseudo-element */
+            font-size: 24px;
+        }
+
+        /* ::after element for decorative line beneath the heading */
+        h2::after {
+            content: '';
+            display: block; /* Makes it act like a block element */
+            width: 50%; /* Line width */
+            height: 4px; /* Line height */
+            background-color: #5e84ac; /* Line color */
+            margin: 10px auto; /* Center the line */
+        }
+
+        /* Button icon using ::before */
+        .my-button::before {
+            content: '🔍';
+            margin-right: 8px;
+            font-size: 18px; 
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to My Website</h2>
+    
+    <button class="my-button">Search</button>
+    
+    <p>Visit my <a href="#">portfolio</a> to see more work!</p>
+    <p>Check out this <a href="#">interesting link</a> that I found!</p>
+</body>
+</html>

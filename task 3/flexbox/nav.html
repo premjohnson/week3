@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Navbar with Logo</title>
+    <style>
+        /* CSS for Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between; /* Space between logo and links */
+            align-items: center; /* Aligns items vertically */
+            background-color: #119d7872; /* Blue background */
+            padding: 20px; /* Padding around navbar */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        /* Logo Styling */
+        .navbar .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Navigation Links */
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px; /* Space between links */
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #5499de6e;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <!-- Logo on the Left -->
+        <a href="#" class="logo">MyLogo</a>
+
+        <!-- Navigation Links on the Right -->
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+</body>
+</html>

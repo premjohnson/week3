@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Transitions and Animations</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Full height of the viewport */
+            margin: 0;
+            background-color: #f0f0f0; /* Light background */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Button Styling */
+        .my-button {
+            background-color: #879bb1; /* Initial blue background */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease; /* Smooth transition for background color */
+            margin-top: 4rem;
+        }
+
+        /* Change background color on hover */
+        .my-button:hover {
+            background-color: #0056b3; /* Darker blue */
+        }
+
+        /* Image Styling */
+        .my-image {
+            width: 300px; /* Fixed width */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.3s ease; /* Smooth transition for scaling */
+        }
+
+        /* Scale image on hover */
+        .my-image:hover {
+            transform: scale(1.1); /* Slightly enlarges the image on hover */
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome to My Page</h2>
+    <img class="my-image" src="./Why-you-need-to-have-systems-in-place-for-your-business-2048x1152.png" alt="Sample Image">
+    <button class="my-button">Click Me</button>
+</body>
+</html>

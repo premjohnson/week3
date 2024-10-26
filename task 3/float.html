@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float Layout Examples</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding: 20px;
+            background: #f5f7fa;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Text with Floated Image Section */
+        .image-text-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .floated-image {
+            float: left;
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            margin: 0 20px 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-content {
+            overflow: hidden;
+        }
+
+        .text-content h2 {
+            color: #1a1a3a;
+            margin-bottom: 15px;
+        }
+
+        .text-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        /* Two Column Layout */
+        .two-column-section {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .column {
+            width: 48%;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            min-height: 300px;
+        }
+
+        .left-column {
+            float: left;
+        }
+
+        .right-column {
+            float: right;
+        }
+
+        .column h2 {
+            color: #1a1a3a;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .column p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Card Style for Columns */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .floated-image {
+                float: none;
+                width: 100%;
+                margin: 0 0 20px 0;
+                height: auto;
+            }
+
+            .column {
+                float: none;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .right-column {
+                margin-top: 20px;
+            }
+        }
+
+        /* Helper Classes */
+        .text-primary { color: #1a1a3a; }
+        .text-secondary { color: #666; }
+        .mb-20 { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Text with Floated Image Section -->
+        <section class="image-text-section">
+            <h2 class="mb-20">Text Wrapping Around Floated Image</h2>
+            <img src="./Why-you-need-to-have-systems-in-place-for-your-business-2048x1152.png" alt="Placeholder" class="floated-image">
+            <div class="text-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>
+            </div>
+        </section>
+
+        <!-- Two Column Layout -->
+        <section class="two-column-section clearfix">
+            <h2 class="mb-20">Two Column Layout with Float</h2>
+            
+            <div class="column left-column">
+                <div class="card">
+                    <h2>Left Column</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+                <div class="card">
+                    <h2>Additional Content</h2>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                </div>
+            </div>
+
+            <div class="column right-column">
+                <div class="card">
+                    <h2>Right Column</h2>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+                </div>
+                <div class="card">
+                    <h2>More Information</h2>
+                    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

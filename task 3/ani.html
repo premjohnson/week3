@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Example</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .banner {
+            width: 20rem;
+            height: 150px;
+            background-color: #007BFF; /* Initial color */
+            animation: changeColor 5s infinite alternate; /* Change color continuously */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 5px 5px;
+        }
+
+        @keyframes changeColor {
+            0% { background-color: #d87adc4e; }
+            25% { background-color: #4f976073; }
+            50% { background-color: #ebbe3789; }
+            75% { background-color: #8d404873; }
+            100% { background-color: #328d9bab; }
+        }
+
+        .wiggle-button {
+            margin-top: 20px; /* Space between banner and button */
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            animation: wiggle 0.5s ease infinite; /* Wiggling animation */
+        }
+
+        .wiggle-button:hover {
+            background-color: #0056b3; /* Darker on hover */
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">Welcome to Our Website!</div>
+    <button class="wiggle-button">Hover Me!</button>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation with Keyframes</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .bouncing-ball {
+            width: 50px;
+            height: 50px;
+            background-color: #007BFF;
+            border-radius: 50%;
+            animation: bounce 1s infinite;
+            margin-bottom: 20px; /* Space between animations */
+        }
+
+        .fade-in {
+            width: 200px;
+            height: 200px;
+            background-color: #28a745;
+            border-radius: 10px;
+            animation: fadeIn 2s forwards;
+            margin-bottom: 20px; /* Space between animations */
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-150px);
+            }
+            60% {
+                transform: translateY(-75px);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .rotating-box {
+            width: 100px;
+            height: 100px;
+            background-color: #ffc107;
+            border-radius: 10px;
+            animation: rotate 3s infinite linear;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bouncing-ball"></div>
+    <div class="fade-in"></div>
+    <div class="rotating-box"></div>
+</body>
+</html>
